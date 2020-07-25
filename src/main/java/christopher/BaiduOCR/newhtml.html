@@ -1,0 +1,206 @@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<base target="_self" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>湖北工程学院综合教务管理系统-强智科技</title>
+		<meta http-equiv="keywords" content="教务管理 数字校园 综合教务管理 教学管理 中职数字校园 强智科技 高校教务 迎新 学工系统 收费系统 人事管理 科研管理 课程资源 网站群 在线支付管理" />
+		<meta http-equiv="description" content="湖南强智科技发展有限公司（www.qzdatasoft.com）是中国数字化校园软件专业提供商。十多年来，强智科技一直致力于中国教育信息化平台的研发与推广；强智新一代综合教学管理平台将教、学、管理、服务与决策完美结合的设计理念，众多高校的成功实施，必将成为行业的标杆，永载史册。" />
+	
+<style>
+body{margin:0px; padding:0px;background:#031129 url(/hbgcxy/framework/images/login_01.gif) repeat-x left top; }
+.login_content{ width:707px; margin:0px auto;}
+.login_logo{ widows:707px; height:72px; margin-top:93px; background:url(/hbgcxy/framework/images/login_02.gif) no-repeat top left;}
+.login{widows:707px; height:191px;background:url(/hbgcxy/framework/images/login_03.gif) no-repeat top left; padding-top:104px;font-family:"宋体"; font-size:12px; color:#13418b; }
+.login_dy{widows:707px; height:132px;background:url(/hbgcxy/framework/images/login_04.gif) no-repeat top left;}
+.dl_border{font-family:arial;border: 1px solid #1d95c7;}
+.copyright {color:font-family:"宋体"; font-size:12px; color:#13418b; text-decoration:none}
+.copyright:hover{color:font-family:"宋体"; font-size:12px; color:#13418b; text-decoration:none}
+</style>
+<script type="text/javascript" src="/hbgcxy/js/jspublic.js"></script>
+<script>
+function ReShowCode(){
+	var SafeCodeImg = document.getElementById('SafeCodeImg');
+	SafeCodeImg.innerHTML='';
+	var timeID = setTimeout('ShowCode()',500);
+}
+function ShowCode(){
+	var SafeCodeImg = document.getElementById('SafeCodeImg');
+	var url="/hbgcxy/verifycode.servlet?"+Math.random();
+	var htmlurl="<img src=\'"+url+"\' align=\'absmiddle\' onclick=ReShowCode();>'";
+	SafeCodeImg.innerHTML=htmlurl;
+}
+</script>
+
+	</head>
+	<iframe style="display: none" name="frmIframe"> 
+	</iframe>
+	<form name="frm" method=post action="/hbgcxy/Logon.do?method=logon" onSubmit="return onSubmint();">
+		<body>
+			<div class="login_container">
+				<div class="login_content">
+					<div class="login_logo"></div>
+					<div class="login">
+						<table width="430" border="0" cellspacing="0" cellpadding="0">
+						<tr><td width="112" align="right">
+						<!-- 
+						<input type="radio" value="jwxt" checked="checked" name="xtlx"/>教务系统 --> </td>
+						<td><!-- <input type="radio" id="xkxt_sel" value="xkxt"  name="xtlx"/>选课系统 --></td></tr>
+							<tr>
+								<td width="112" height="25" align="right">用户名：</td>
+								<td colspan="2">
+									<label>
+										<input name="USERNAME" type="text" id="userAccount" size="22" class="dl_border" maxlength="32" value="" />
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td width="112" height="25" align="right">密&nbsp;&nbsp;码：</td>
+								<td colspan="2">
+									<label>
+										<input type="password" name="PASSWORD" id="userPassword" value="" size="22" class="dl_border" maxlength="32" />
+										<input name="useDogCode" type="hidden" value="" />
+										<input name="useDogCode" id="useDogCode" type="hidden">
+									</label>
+								</td>
+							</tr>
+							
+								<tr>
+									<td width="112" height="25" align="right">验证码：</td>
+									<td colspan="2">
+										<label>
+											<input type="text" name="RANDOMCODE" id="RANDOMCODE" style="height:16px;width:93px" size="22" class="dl_border" maxlength="32" />
+											<span id="SafeCodeImg"> <img src="/hbgcxy/verifycode.servlet" onclick="ReShowCode()" align="middle" width="62" height="22" /></span>
+									</td>
+								</tr>
+							
+							<tr>
+								<td width="112" height="25" align="right">&nbsp;</td>
+								<td align="left" colspan=2>
+									<font color=red><span id="errorinfo"></span> </font>
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td height="25" valign=top>
+									<table width="100%" border=0>
+										<tr>
+											<td width="100"><input type="image" src="/hbgcxy/framework/images/login_05.gif" width="76" height="24" /></td>
+											<td align="left"><span style="font-size:9pt"><a href="/hbgcxy/framework/enteraccount.jsp" >找回学生密码</a></span></td>
+										</tr>
+										<tr>
+											<td colspan=2>&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="40">&nbsp;</td>
+								<td colspan="2" style="padding-left:0px;padding-bottom:5px" align="left" valign="bottom">
+									在线用户数：
+									13
+									人&nbsp; <a  target="_blank" href="http://www.qzdatasoft.com" 
+									class="copyright" title="湖南强智科技发展有限公司">技术支持 湖南强智科技发展有限公司</a>
+                                                                        <a  target="_blank" href="http://jwgl.hbeu.cn:8088/hbgcxy_xkxt" 
+									class="copyright" title="湖南强智科技发展有限公司"><strong><font color="red" size='5'>选课系统由此进入</font></strong></a>
+     								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="login_dy"></div>
+				</div>
+			</div>
+		</body>
+</html>
+<script language="javascript">
+var useraccount=null;
+var p="window";
+var pt="";
+
+if(window.parent!=window || eval(p+".dialogArguments")!=undefined){
+	for(var i=0;i<20;i++){
+		try{
+			if(eval(p+pt+".dialogArguments")==undefined){
+				pt+=".parent";
+				useraccount=eval(p+pt+".getUseraccount()");
+			}else{
+				pt+=".dialogArguments";
+				useraccount=eval(p+pt+".getUseraccount()");
+			}
+			break;
+		}catch(e){}
+	}
+}
+
+function onSubmint(){
+
+	if (document.frm.USERNAME.value == "" || document.frm.PASSWORD.value == "" ){
+		alert("请输入完整的登陆信息！");
+		document.frm.USERNAME.focus();
+		document.frm.USERNAME.select();
+	    return false;
+  	}
+  	if(useraccount!=null)
+  		document.frm.target="frmIframe";
+  	if(useraccount!=null && useraccount!=document.frm.USERNAME.value){
+  		if(window.confirm("系统检查到您两次登录的账号不一致，是否确定用新账号登录？")){
+ 			var ppt=p+pt;
+ 			while(ppt.lastIndexOf('.')!=-1){
+ 				ppt=ppt.substring(0,ppt.lastIndexOf('.'));
+ 				eval(ppt+".close()");
+ 			}
+  			eval(p+pt+".reloadmian()");
+  		}else{
+  			document.frm.reset();
+  		}
+  		return false;
+  	}
+  	
+  	//判断是否启用进入选课系统
+  	var xkxt_sel = document.getElementById("xkxt_sel");
+  	if(xkxt_sel ==null || !xkxt_sel.checked){
+  		return true;
+  	}
+  	document.frm.action = selectServer(document.frm.USERNAME.value);
+  	
+    return true;
+}
+
+window.onload = function(){
+	document.getElementById('userAccount').focus();
+}
+
+
+//根据用户帐号选择登录服务器
+function selectServer(uName){
+	var enableServers = true;//是否启用多服务器 true/false
+	var serversArray = new Array();//服务器列表
+
+	
+		serversArray[0] = "http://211.85.1.13:8088/hbgcxy_xkxt/";
+	
+
+	var loginUrl = "xk/LoginToXk";
+	if(enableServers == true){
+		if(!isNaN(uName)){//必须为数字
+			var modVal = eval(uName % serversArray.length);
+			loginUrl = serversArray[modVal] + loginUrl;
+		}else{
+			loginUrl = serversArray[0] + loginUrl;
+		}
+	}else{
+		loginUrl = "/hbgcxy"+ loginUrl;
+	}
+	return loginUrl;
+}
+
+
+
+</script>
