@@ -28,5 +28,7 @@ public class Generics {
         System.out.println(list.get(0).getClass());
         if(list.get(1) instanceof Integer)
         System.out.println(list.get(1).getClass());
+        System.out.println(4.3333333);
+        System.out.println(String.valueOf(4.3333333));
     }
 }
