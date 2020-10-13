@@ -15,14 +15,15 @@ import java.util.concurrent.TimeoutException;
 @EnableScheduling
 @Component//不添加Component 定时任务无法执行
 public class RabbitMQPrac {
-    @Scheduled(cron = "*/5 * * * * ?")
+    static int count = 0;
+    @Scheduled(cron = "*/10 * * * * ?")
     public void testFunc(){
         /**
          * 1.Create RabbitMq Connection
          */
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUsername("guest"); factory.setPassword("guest");
-        factory.setVirtualHost("/"); factory.setHost("39.108.183.232");
+        factory.setVirtualHost("/"); factory.setHost("8.129.42.155");
         factory.setPort(5672);
 
         /*
@@ -51,11 +52,11 @@ public class RabbitMQPrac {
             for(int i = 0;i<10000;i++){
                 // channel.basicPublish(exchange, routingKey, props, body);
                 channel.basicPublish("", "queue", null, (message+i).getBytes(Charset.forName("UTF-8")));
+                count++;
             }
-            System.out.println(" [x] Sent '" + message + "'");
+            System.out.println("connection:"+conn+" [x] Sent "+count+" '" + message + "'");
             channel.close();
             conn.close();
-            System.out.println(conn);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TimeoutException e) {
@@ -68,7 +69,7 @@ public class RabbitMQPrac {
          */
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUsername("guest"); factory.setPassword("guest");
-        factory.setVirtualHost("/"); factory.setHost("39.108.183.232");
+        factory.setVirtualHost("/"); factory.setHost("8.129.42.155");
         factory.setPort(5672);
         
         /*
@@ -98,10 +99,9 @@ public class RabbitMQPrac {
                 // channel.basicPublish(exchange, routingKey, props, body);
                 channel.basicPublish("", "queue", null, (message+i).getBytes(Charset.forName("UTF-8")));
             }
-            System.out.println(" [x] Sent '" + message + "'");
+            System.out.println("connection:"+conn+" [x] Sent '" + message + "'");
             channel.close();
             conn.close();
-            System.out.println(conn);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TimeoutException e) {
