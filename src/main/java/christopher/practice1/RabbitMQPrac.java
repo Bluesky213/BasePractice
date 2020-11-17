@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 @Component//不添加Component 定时任务无法执行
 public class RabbitMQPrac {
     static int count = 0;
-    @Scheduled(cron = "*/10 * * * * ?")
+//    @Scheduled(cron = "*/10 * * * * ?")
     public void testFunc(){
         /**
          * 1.Create RabbitMq Connection

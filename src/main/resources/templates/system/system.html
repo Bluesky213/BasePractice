@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<el-tooltip :content="'Switch value: ' + value" placement="top">
+    <el-switch
+            v-model="value"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            active-value="100"
+            inactive-value="0">
+    </el-switch>
+</el-tooltip>
+
+<script>
+    export default {
+        data() {
+            return {
+                value: '100'
+            }
+        }
+    };
+</script>
+</body>
+</html>
