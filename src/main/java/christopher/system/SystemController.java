@@ -54,6 +54,14 @@ public class SystemController {
         return "/system/system";
     }
 
+    @RequestMapping("/job")
+    public String jobPage(){
+//        a.incrementAndGet();
+        a++;
+        System.out.println("--------RESULT-------- "+a);
+        return "/system/job";
+    }
+
     @RequestMapping("/post1")
     public String startPost1(){
         long start = System.currentTimeMillis();

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/vue/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id = "app">
+    <el-table
+            :data="tableData"
+            border
+            :fit="false"
+            style="width: 100%">
+        <el-table-column
+                label="名称"
+                width="180">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.name }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="任务"
+                width="500">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.bean }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="cron"
+                width="120">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.cron }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="参数"
+                width="180">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.param }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="状态"
+                width="60">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.state }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="创建日期"
+                width="180">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.createdate }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="备注"
+                width="180">
+            <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-left: 10px">{{ scope.row.date }}</span>-->
+                <span style="margin-left: 10px">{{ scope.row.memo }}</span>
+            </template>
+        </el-table-column>
+        <!--<el-table-column-->
+                <!--label="姓名"-->
+                <!--width="180">-->
+            <!--<template slot-scope="scope">-->
+                <!--<el-popover trigger="hover" placement="top">-->
+                    <!--<p>姓名: {{ scope.row.name }}</p>-->
+                    <!--<p>住址: {{ scope.row.address }}</p>-->
+                    <!--<div slot="reference" class="name-wrapper">-->
+                        <!--<el-tag size="medium">{{ scope.row.name }}</el-tag>-->
+                    <!--</div>-->
+                <!--</el-popover>-->
+            <!--</template>-->
+        <!--</el-table-column>-->
+        <el-table-column label="操作"  width="150">
+            <template slot-scope="scope">
+                <el-button
+                        size="mini"
+                        @click="handleRun(scope.$index, scope.row)">运行</el-button>
+                <el-button
+                        size="mini"
+                        type="danger"
+                        @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            tableData: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }]
+        },
+        methods:{
+            listJob(){
+                var that = this;
+                $.ajax({
+                    url:"/job/op/list.do",
+                    type:"GET",
+                    data:{
+
+                    },
+                    success:function(res){
+                        that.tableData = res.data;
+                        console.log(res)
+                    }
+                })
+            },
+            handleRun(index, row) {
+                var that = this;
+                console.log(index, row);
+                $.ajax({
+                    url:"/job/op/run.do",
+                    type:"GET",
+                    data:{
+                        id:row.id
+                    },
+                    success:function(res){
+                        console.log(res)
+                    }
+                })
+            },
+            handleDelete(index, row) {
+                var that = this;
+                console.log(index, row);
+                $.ajax({
+                    url:"/job/op/del.do",
+                    type:"GET",
+                    data:{
+                        id:row.id
+                    },
+                    success:function(res){
+                        that.listJob();
+                        console.log(res)
+                    }
+                })
+            },
+        },
+        mounted:function () {
+            this.listJob();
+        },
+    });
+</script>
+</body>
+</html>
