@@ -18,7 +18,6 @@ import java.util.concurrent.TimeoutException;
 public class TestController {
     @Autowired
     OpenJdbcUtil openJdbcUtil;
-    @Autowired
 
     @RequestMapping("/testOpenJdbc")
     public String testOpenJdbc(){

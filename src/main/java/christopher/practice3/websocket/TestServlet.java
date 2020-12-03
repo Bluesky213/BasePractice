@@ -2,6 +2,7 @@ package christopher.practice3.websocket;
 
 import christopher.practice1.RabbitMQConsumerExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,8 @@ import java.math.BigDecimal;
 public class TestServlet {
     @Autowired
     WebSocket webSocket;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
     @Autowired
     RabbitMQConsumerExample rabbitMQConsumerExample;
 
