@@ -28,7 +28,7 @@ public class RabbitMQConsumerExample {
     private int count = 0;
     private int interval = 100;
 
-    public void test() throws IOException, TimeoutException {
+    public void startMQConsume() throws IOException, TimeoutException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("8.129.42.155");
         Connection connection = connectionFactory.newConnection();

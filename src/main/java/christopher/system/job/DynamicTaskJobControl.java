@@ -1,7 +1,6 @@
 package christopher.system.job;
 
 import christopher.system.util.ResultUitl;
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

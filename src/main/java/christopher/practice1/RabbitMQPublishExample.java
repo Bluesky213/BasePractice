@@ -6,6 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -14,16 +15,17 @@ import java.util.concurrent.TimeoutException;
 
 @EnableScheduling
 @Component//不添加Component 定时任务无法执行
-public class RabbitMQPrac {
+@Service
+public class RabbitMQPublishExample {
     static int count = 0;
 //    @Scheduled(cron = "*/10 * * * * ?")
-    public void testFunc(){
+    public void startMQPublish(){
         /**
          * 1.Create RabbitMq Connection
          */
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUsername("guest"); factory.setPassword("guest");
-        factory.setVirtualHost("/"); factory.setHost("8.129.42.155");
+        factory.setVirtualHost("/"); factory.setHost("127.0.0.1");
         factory.setPort(5672);
 
         /*
@@ -49,7 +51,7 @@ public class RabbitMQPrac {
              */
             channel.queueDeclare("queue", false, false, false, null);
             String message = "Hello world!";
-            for(int i = 0;i<10000;i++){
+            for(int i = 0;i<100000000;i++){
                 // channel.basicPublish(exchange, routingKey, props, body);
                 channel.basicPublish("", "queue", null, (message+i).getBytes(Charset.forName("UTF-8")));
                 count++;
